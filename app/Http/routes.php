@@ -11,6 +11,7 @@
 |
 */
 
+// Basic pages
 Route::get('/', ['as' => 'home', 'uses' => 'PageController@home']);
 
 // Authentication
@@ -21,3 +22,6 @@ Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout
 // Registration (disabled by default)
 //Route::get('register', ['as' => 'register', 'uses' => 'Auth\AuthController@getRegister']);
 //Route::post('register', ['as' => 'register.post', 'uses' => 'Auth\AuthController@postRegister']);
+
+// Dashboard
+Route::get('dashboard', ['as' => 'dashboard.home', 'uses' => 'DashboardController@home']);
