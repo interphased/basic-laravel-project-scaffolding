@@ -1,27 +1,38 @@
-## Laravel PHP Framework
+# Basic Laravel Project Scaffolding
+Basic [Laravel 5.1](https://github.com/laravel/laravel) project scaffolding with Gulp, Bower, LESS, &amp; Bootstrap.
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Overview
+This project helps speed up the process of setting up a simple Laravel 5 project. It configures Bower, Gulp, and Bootstrap automatically in a maintainable way. It strives to keep vendor files seperate from project files and uses programming best practices where possible.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Project Tree
+There are a few minor alterations from a standard Laravel installation. Most importantly, we keep our Bower components outside of our project and in `/vendor/bower_components`. They will be imported and overriden with the help of LESS and Gulp, ensuring that we won't have to make any drastic code changes if we want to update a component.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+```
+.
+├── resources
+|   └── assets
+|   	├── js
+|   	|   └── application.js
+|   	└── less
+|       	├── application.less
+|			├── bootstrap.less
+|       	└── variables.less
+|
+├── public
+|   └── assets
+|       ├── css
+|		├── fonts
+|		├── images
+|       └── js
+|
+└── vendor
+    └── bower_components
+```
 
-## Official Documentation
+## Getting Started
+**Prerequirements:** You must have [Composer](https://getcomposer.org/) and [Node.js](https://nodejs.org/) installed on your system. You should also install Bower and Gulp globally (`npm install -g bower gulp`).
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+1. Run `composer update` to download and install composer packages
+2. Rename `.env.example` to `.env` (`mv .env.example .env`) and then run `php artisan key:generate`
+3. Install node packages with `npm install`. This will automatically run `bower install` and `gulp` once it has finished.
+4. Run `gulp watch` and start developing
